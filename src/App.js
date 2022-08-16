@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import './App.css';
-import GoogleLoginBtn from './GoogleLoginBtn';
+import { useState } from "react";
+import "./App.css";
+import GoogleLoginBtn from "./components/GoogleLoginBtn";
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
   return (
-    <div className='login-form'>
+    <div className="login-form">
       <GoogleLoginBtn user={user} setUser={setUser} />
     </div>
   );
