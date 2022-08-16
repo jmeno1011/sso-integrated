@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="login-form">
       <GoogleLoginBtn user={user} setUser={setUser} />
+      <br />
       <KakaoLoginBtn />
     </div>
   );
