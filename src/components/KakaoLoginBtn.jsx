@@ -1,20 +1,13 @@
 import React from "react";
-import KakaoLogin from "react-kakao-login";
+import KakaoLoginBtnImg from "../assets/kakao_login_btn.png"
 
 const KakaoLoginBtn = () => {
-  const onSuccess = (res) => {
-    console.log(res);
-  };
-  const onFail = (res) => {
-    console.log(res);
-  };
+  const kakaoLoginHandler = ()=>{
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${process.env.REACT_APP_KAKAO_REST_API_KEY}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}`
+  }
+  
   return (
-    <KakaoLogin
-      token={process.env.REACT_APP_KAKAO_REST_API_KEY}
-      onSuccess={onSuccess}
-      onFail={onFail}
-      onLogout={console.info}
-    />
+    <img style={{cursor:'pointer'}} src={KakaoLoginBtnImg} alt="kakao-login-btn" onClick={kakaoLoginHandler}/>
   );
 };
 
