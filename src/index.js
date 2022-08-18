@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
-import counter from './modules/counter';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createStore } from "redux";
+import counter from "./modules/counter";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const store = createStore(counter);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
-  </Provider>
-      ,
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
