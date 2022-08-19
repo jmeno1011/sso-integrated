@@ -2,7 +2,7 @@
 // counter.js에 redux-actions 라이브러리를 사용하여 변경된 코드입니다.
 // ******************************************************** //
 
-import { createAction, handleAction } from "redux-actions";
+import { createAction, handleActions } from "redux-actions";
 
 // 액션 타입 정의
 const INCREASE = "counterAction/INCREASE";
@@ -16,7 +16,7 @@ const initialState = {
   number: 0,
 };
 
-const counterAction = handleAction(
+const counterAction = handleActions(
   {
     [INCREASE]: (state, action) => ({...state, number: state.number + 1 }),
     // 아래와 같은 코드

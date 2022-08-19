@@ -17,6 +17,7 @@ function App() {
     </div>
     <nav className="nav-link">
       <Link to={'/counter'}>counter</Link>
+      <Link to={'/counter-action'}>counter-action</Link>
     </nav>
     <div>
       <Routes>
