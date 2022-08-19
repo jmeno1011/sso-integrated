@@ -4,7 +4,7 @@ import { decrease, increase } from '../modules/counter';
 
 const CounterPage = () => {
     // redux의 state괄리는 도와줌
-    const {number} = useSelector(state=> state.counter.number);
+    const number = useSelector(state=> state.counter.number);
     // = store.dispatch() : index.js의 Provider에서 넘겨준 store에서 dispatch()를 가져오는데 대신 사용할 수 있음
     const dispatch = useDispatch(); 
     const onIncrease = ()=>{
