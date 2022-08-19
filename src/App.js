@@ -4,6 +4,7 @@ import GoogleLoginBtn from "./components/GoogleLoginBtn";
 import KakaoLoginBtn from "./components/KakaoLoginBtn";
 import "./App.css";
 import CounterPage from "./pages/CounterPage";
+import CounterActionPage from "./pages/CounterActionPage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -20,6 +21,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/counter" element={<CounterPage />} />
+        <Route path="/counter-action" element={<CounterActionPage />} />
       </Routes>
     </div>
     </>

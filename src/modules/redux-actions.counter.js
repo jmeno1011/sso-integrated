@@ -5,23 +5,30 @@
 import { createAction, handleAction } from "redux-actions";
 
 // 액션 타입 정의
-const INCREASE = "counter/INCREASE";
-const DECREASE = "counter/DECREASE";
+const INCREASE = "counterAction/INCREASE";
+const DECREASE = "counterAction/DECREASE";
 
 // 액션 생성 함수
-export const increase = createAction(INCREASE);
+export const increase = createAction(INCREASE); // = export const increase = () => ({ type: INCREASE });
 export const decrease = createAction(DECREASE);
 
 const initialState = {
   number: 0,
 };
 
-const counter = handleAction(
+const counterAction = handleAction(
   {
-    [INCREASE]: (state, action) => ({ number: state.number + 1 }),
-    [DECREASE]: (state, action) => ({ number: state.number - 1 }),
+    [INCREASE]: (state, action) => ({...state, number: state.number + 1 }),
+    // 아래와 같은 코드
+    // switch (action.type) {
+    //   case INCREASE:
+    //     return {
+    //       ...state,
+    //       number: state.number + 1,
+    //     };
+    [DECREASE]: (state, action) => ({...state, number: state.number - 1 }),
   },
   initialState
 );
 
-export default counter;
+export default counterAction;
