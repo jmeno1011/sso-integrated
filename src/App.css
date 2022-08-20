@@ -10,7 +10,10 @@
   justify-content: center;
   align-items: center;
 }
-.nav-link{
+.login-form > button {
+  margin-bottom: 16px;
+}
+.nav-link {
   width: 50%;
   height: 80px;
   border: 1px solid silver;
