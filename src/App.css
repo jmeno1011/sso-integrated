@@ -1,14 +1,14 @@
 .login-form {
   width: 50%;
-  height: 500px;
-  border: 1px solid silver;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid silver;
 }
 .login-form > button {
   margin-bottom: 16px;
@@ -25,6 +25,15 @@
   justify-content: center;
   align-items: center;
 }
+
+.nav-link ul{
+  display: flex;
+}
+
+.nav-link li{
+  margin-right: 16px;
+}
+
 .counter-page {
   width: 50%;
   height: 200px;
