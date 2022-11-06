@@ -1,36 +1,32 @@
 import { useState } from "react";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
 import GoogleLoginBtn from "./components/GoogleLoginBtn";
 import KakaoLoginBtn from "./components/KakaoLoginBtn";
-import CounterPage from "./pages/CounterPage";
-import CounterActionPage from "./pages/CounterActionPage";
-import KakaoProfile from "./components/KakaoProfile";
 import "./App.css";
+import styled from "styled-components";
+
+const Header = styled.header`
+  h1{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+`
+const Layout = styled.div`
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+`
 
 function App() {
   const [user, setUser] = useState({});
   return (
-    <>
-      <nav className="nav-link">
-        <ul>
-          {/* <li><Link to={"/counter"}>counter</Link></li>
-          <li><Link to={"/counter-action"}>counter-action</Link></li> */}
-          <li><Link to={"/profile"}>kakao profile</Link></li>
-        </ul>
-      </nav>
-      <div className="login-form">
-        <GoogleLoginBtn user={user} setUser={setUser} />
-        <KakaoLoginBtn />
-      </div>
-      <div>
-        <Routes>
-          {/* <Route path="/counter" element={<CounterPage />} />
-          <Route path="/counter-action" element={<CounterActionPage />} /> */}
-          <Route path="/profile" element={<KakaoProfile />} />
-        </Routes>
-      </div>
-      <Outlet />
-    </>
+    <div>
+      <Header>
+        <h1>로그인</h1>
+      </Header>
+      <GoogleLoginBtn user={user} setUser={setUser} />
+      <KakaoLoginBtn />
+    </div>
   );
 }
 

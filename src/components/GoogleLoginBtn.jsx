@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
+import styled from "styled-components";
+
+const GoogleLayout = styled.div`
+  padding: 16px;
+  border: 2px solid #333;
+`
 
 const GoogleLoginBtn = ({ user, setUser }) => {
   useEffect(() => {
@@ -30,13 +36,15 @@ const GoogleLoginBtn = ({ user, setUser }) => {
   return (
     <>
       {Object.keys(user).length === 0 ? (
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          onSuccess={onSuccess}
-          onFailure={onFailure}
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-        />
+        // <GoogleLayout>
+          <GoogleLogin
+            clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={"single_host_origin"}
+            isSignedIn={true}
+          />
+        // </GoogleLayout>
       ) : (
         <div style={{ display: "flex", flexDirection: "column" }}>
           <img src={user.profileObj.imageUrl} alt="profile" />
