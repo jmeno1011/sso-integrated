@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import KakaoLoginBtnImg from "../assets/kakao_login_btn.png";
 
 const KakaoLoginBtn = () => {
