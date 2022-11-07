@@ -11,11 +11,17 @@ const GoogleLayout = styled.div`
 
 
 const GoogleLoginBtn = ({ user, setUser }) => {
-  useEffect(() => {
+  function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+  }
+  function googleInit(){
     window.google.accounts.id.initialize({
-      client_id: "YOUR_GOOGLE_CLIENT_ID",
-      // callback: handleCredentialResponse
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      callback: handleCredentialResponse
     });
+  }
+  useEffect(() => {
+    googleInit()
   }, [])
   return (
     <div>
