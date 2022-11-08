@@ -15,6 +15,8 @@ const Layout = styled.div`
   width: 100%;
   padding-top: 16px;
   padding-bottom: 16px;
+  display: flex;
+  justify-content: center;
 `
 
 function App() {
@@ -24,8 +26,10 @@ function App() {
       <Header>
         <h1>로그인</h1>
       </Header>
-      <GoogleLoginBtn user={user} setUser={setUser} />
-      <KakaoLoginBtn />
+      <Layout>
+        <GoogleLoginBtn user={user} setUser={setUser} />
+      </Layout>
+      {/* <KakaoLoginBtn /> */}
     </div>
   );
 }
