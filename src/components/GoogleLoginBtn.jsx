@@ -2,31 +2,34 @@ import { useEffect } from "react";
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 import { gapi } from "gapi-script";
 import styled from "styled-components";
+import { useRef } from "react";
 
 const GoogleLayout = styled.div`
   padding: 16px;
   border: 2px solid #333;
 `
 
-
-
 const GoogleLoginBtn = ({ user, setUser }) => {
+  const googleButtonRef = useRef(null);
   function handleCredentialResponse(response) {
     console.log("Encoded JWT ID token: " + response.credential);
   }
   function googleInit(){
+    console.log(window.google);
     window.google.accounts.id.initialize({
       client_id: process.env.REACT_APP_CLIENT_ID,
       callback: handleCredentialResponse
     });
+    window.google.accounts.id.renderButton(
+      googleButtonRef.current, 
+      {theme: "outline", size: "large"}
+    )
   }
   useEffect(() => {
     googleInit()
   }, [])
   return (
-    <div>
-      login
-    </div>
+    <div ref={googleButtonRef}/>
   )
 }
 
