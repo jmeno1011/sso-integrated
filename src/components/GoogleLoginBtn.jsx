@@ -9,12 +9,11 @@ const GoogleLoginBtn = () => {
     setUser(response.credential);
     console.log("Encoded JWT ID token: " + response.credential);
   }
-  function logout() {
+  function signout() {
     setUser('')
     window.google.accounts.id.disableAutoSelect();
   }
   function googleInit() {
-    console.log(window.google);
     window.google.accounts.id.initialize({
       client_id: process.env.REACT_APP_CLIENT_ID,
       callback: handleCredentialResponse
@@ -23,15 +22,15 @@ const GoogleLoginBtn = () => {
       googleButtonRef.current,
       { theme: "outline", size: "large" }
     )
-    // window.google.accounts.id.prompt();
+    window.google.accounts.id.prompt();
   }
   useEffect(() => {
     googleInit()
-  }, [])
+  }, [user])
   return (
     <>
       {
-        user === '' ? <div ref={googleButtonRef} /> : <div style={{ border: '1px solid #333', cursor: 'pointer' }} className="g_id_signout" onClick={logout}>Sign Out</div>
+        user === '' ? <div ref={googleButtonRef} /> : <div style={{ border: '1px solid #333', cursor: 'pointer' }} className="g_id_signout" onClick={signout}>Sign Out</div>
 
       }
     </>
