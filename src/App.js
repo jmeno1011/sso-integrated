@@ -16,20 +16,22 @@ const Layout = styled.div`
   padding-top: 16px;
   padding-bottom: 16px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 8px;
 `
 
 function App() {
-  const [user, setUser] = useState({});
   return (
     <div>
       <Header>
         <h1>로그인</h1>
       </Header>
       <Layout>
-        <GoogleLoginBtn user={user} setUser={setUser} />
+        <GoogleLoginBtn />
+        <KakaoLoginBtn />
       </Layout>
-      {/* <KakaoLoginBtn /> */}
     </div>
   );
 }

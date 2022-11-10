@@ -30,7 +30,9 @@ const GoogleLoginBtn = () => {
   return (
     <>
       {
-        user === '' ? <div ref={googleButtonRef} /> : <div style={{ border: '1px solid #333', cursor: 'pointer' }} className="g_id_signout" onClick={signout}>Sign Out</div>
+        user === '' 
+        ? <div ref={googleButtonRef} /> 
+        : <div style={{ border: '1px solid #333', cursor: 'pointer' }} className="g_id_signout" onClick={signout}>Sign Out</div>
 
       }
     </>

@@ -41,15 +41,13 @@ const KakaoLoginBtn = () => {
   }, []);
 
   return (
-    <>
-      <img
-        style={{ cursor: "pointer" }}
-        src={KakaoLoginBtnImg}
-        alt="kakao-login-btn"
-        onClick={kakaoLoginHandler}
-      />
-      <br />
-    </>
+    <img
+      style={{ cursor: "pointer" }}
+      src={KakaoLoginBtnImg}
+      alt="kakao-login-btn"
+      onClick={kakaoLoginHandler}
+      width={200}
+    />
   );
 };
 
