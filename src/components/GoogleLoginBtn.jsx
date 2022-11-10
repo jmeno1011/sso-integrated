@@ -22,7 +22,7 @@ const GoogleLoginBtn = () => {
       googleButtonRef.current,
       { theme: "outline", size: "large" }
     )
-    window.google.accounts.id.prompt();
+    // window.google.accounts.id.prompt();
   }
   useEffect(() => {
     googleInit()
