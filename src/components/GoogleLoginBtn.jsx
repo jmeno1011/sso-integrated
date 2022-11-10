@@ -1,27 +1,40 @@
+import { useState } from "react";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
-const GoogleLoginBtn = ({ user, setUser }) => {
+const GoogleLoginBtn = () => {
+  const [user, setUser] = useState('');
   const googleButtonRef = useRef(null);
   function handleCredentialResponse(response) {
+    setUser(response.credential);
     console.log("Encoded JWT ID token: " + response.credential);
   }
-  function googleInit(){
+  function logout() {
+    setUser('')
+    window.google.accounts.id.disableAutoSelect();
+  }
+  function googleInit() {
     console.log(window.google);
     window.google.accounts.id.initialize({
       client_id: process.env.REACT_APP_CLIENT_ID,
       callback: handleCredentialResponse
     });
     window.google.accounts.id.renderButton(
-      googleButtonRef.current, 
-      {theme: "outline", size: "large"}
+      googleButtonRef.current,
+      { theme: "outline", size: "large" }
     )
+    // window.google.accounts.id.prompt();
   }
   useEffect(() => {
     googleInit()
   }, [])
   return (
-    <div ref={googleButtonRef}/>
+    <>
+      {
+        user === '' ? <div ref={googleButtonRef} /> : <div style={{ border: '1px solid #333', cursor: 'pointer' }} className="g_id_signout" onClick={logout}>Sign Out</div>
+
+      }
+    </>
   )
 }
 
